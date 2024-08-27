@@ -98,8 +98,7 @@ dependencies {
     // ...with Kotlin.
     kaptTest (libs.com.google.dagger.hilt.android.compiler2)
     // ...with Java.
-    testAnnotationProcessor (libs.com.google.dagger.hilt.android.compiler2)
-
+   // testAnnotationProcessor (libs.com.google.dagger.hilt.android.compiler2)
 
     // For instrumented tests.
     androidTestImplementation (libs.hilt.android.testing)
@@ -107,5 +106,13 @@ dependencies {
     kaptAndroidTest (libs.com.google.dagger.hilt.android.compiler2)
     // ...with Java.
     androidTestAnnotationProcessor (libs.com.google.dagger.hilt.android.compiler2)
+
+    // AndroidX Core Testing for LiveData testing
+    testImplementation(libs.core.testing)
+    androidTestImplementation(libs.core.testing)
+
+    // google truth
+    testImplementation(libs.truth)
+    androidTestImplementation(libs.truth)
 
 }
