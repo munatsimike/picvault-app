@@ -8,8 +8,8 @@ import com.example.picvault.data.model.ImageEntity
 @Dao
 interface PicVaultDao {
     @Insert
-   suspend fun insertImage(imageEntity: ImageEntity)
+   suspend fun insertImageEntity(imageEntity: ImageEntity)
 
     @Query("SELECT * FROM imageentity")
-   suspend fun fetchAllImage(): List<ImageEntity>
+   suspend fun getAllImageEntities(): List<ImageEntity>
 }
