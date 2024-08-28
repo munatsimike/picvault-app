@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class ImageEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-    val uri: Url,
-    val timeStamp: Long
+    var id: Int = 0,
+    var uri: Url,
+    var timeStamp: Long
 )
