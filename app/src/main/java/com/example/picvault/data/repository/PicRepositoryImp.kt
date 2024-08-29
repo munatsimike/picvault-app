@@ -1,5 +1,7 @@
 package com.example.picvault.data.repository
 
+import com.example.picvault.data.source.GalleryManager
+import com.example.picvault.data.helper.ImageConverter
 import com.example.picvault.data.source.LocalDataSource
 import com.example.picvault.data.toListOfImage
 import com.example.picvault.domain.Image
@@ -16,10 +18,30 @@ import javax.inject.Inject
  *   from the data layer.
  */
 
-class PicRepositoryImp @Inject constructor(private val localDataSource: LocalDataSource) :
-    PicRepository {
-    override suspend fun saveImage(image: Image) {
+class PicRepositoryImp @Inject constructor(
+    private val imageConverter: ImageConverter,
+    private val localDataSource: LocalDataSource,
+    private val galleryManager: GalleryManager
+) : PicRepository {
+
+    override suspend fun saveImageToLocalDb(image: Image) {
         localDataSource.saveImageEntity(image.toImageEntity())
+    }
+
+    override fun saveImageToGallery(image: Image): Result<Unit> {
+        return try {
+            val bitmap = imageConverter.imageToBitmap(image)
+            if (bitmap != null) {
+               galleryManager.saveImageToGallery(bitmap)
+                Result.success(Unit)
+            } else {
+                // More descriptive error message if the bitmap is null
+                Result.failure(Exception("Image conversion failed; bitmap is null"))
+            }
+        } catch (e: Exception) {
+            // Returning the exact exception to capture more specific failure scenarios
+            Result.failure(e)
+        }
     }
 
     override suspend fun getAllImages(): List<Image> {

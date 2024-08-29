@@ -1,20 +1,21 @@
+package com.example.picvault.data.source
+
 import android.content.ContentValues
 import android.content.Context
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
-import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
+
 
 /**
  * GalleryManager is responsible for managing media-related tasks,
  * specifically saving images to the device's gallery. This class interacts
  * with the Android MediaStore to insert images into the user's public media storage.
  */
-class GalleryManager @Inject constructor(
-    @ApplicationContext private val context: Context
-) {
+class GalleryManager @Inject constructor(private val context: Context) {
+
     /**
      * Saves the given bitmap image to the device's gallery.
      *
