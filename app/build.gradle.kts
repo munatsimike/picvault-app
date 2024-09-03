@@ -41,6 +41,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -78,8 +79,12 @@ dependencies {
     // CameraX for camera functionality
     implementation (libs.androidx.camera.camera2)
     implementation (libs.androidx.camera.lifecycle)
-    implementation (libs.androidx.camera.view)
+
     implementation (libs.androidx.camera.extensions)
+    implementation (libs.androidx.camera.core)
+    // View class for camera preview
+    implementation (libs.androidx.camera.view.v1)
+
 
     // Room for local database
     implementation (libs.androidx.room.runtime)

@@ -11,10 +11,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class PicViewModel @Inject constructor(private val saveImageUseCase: SaveImageUseCase): ViewModel() {
+class PicViewModel @Inject constructor(private val saveImageUseCase: SaveImageUseCase) :
+    ViewModel() {
 
     private val message_ = mutableStateOf<ImageSaveState>(ImageSaveState.Initial)
-
     val message: State<ImageSaveState> = message_
 
     fun saveToGallery(image: Image) {
@@ -28,4 +28,6 @@ class PicViewModel @Inject constructor(private val saveImageUseCase: SaveImageUs
             message_.value = ImageSaveState.Failure(ErrorMassage("Image not saved"))
         }
     }
+
+
 }
