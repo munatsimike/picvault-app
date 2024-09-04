@@ -9,6 +9,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import javax.inject.Inject
+import javax.inject.Named
 
 @HiltAndroidTest
 class PicVaultDaoTest {
@@ -19,6 +20,7 @@ class PicVaultDaoTest {
     val instantExecutorRule = InstantTaskExecutorRule()
 
     @Inject
+    @Named("test")
     lateinit var inMemoryDb: LocalDatabase
 
     @Inject

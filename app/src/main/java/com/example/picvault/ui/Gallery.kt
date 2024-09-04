@@ -35,6 +35,7 @@ object Gallery {
         }
     }
 
+
     private fun getStoredImageUris(context: Context): List<Uri> {
         // Get the directory where images are stored
         val imagesDir = File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "")
@@ -64,7 +65,6 @@ object Gallery {
                     contentDescription = "Captured Image",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
-
                 )
             }
         } else {

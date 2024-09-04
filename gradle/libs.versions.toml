@@ -1,10 +1,12 @@
 [versions]
 agp = "8.5.2"
+androidxRoomCompiler = "2.x.x"
 cameraCamera2 = "1.3.4"
 cameraView = "1."
 coilCompose = "2.4.0"
 coreTestingVersion = "2.2.0"
 hiltAndroidTesting = "2.49"
+hiltNavigationCompose = "1.2.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -29,8 +31,11 @@ androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", versi
 androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "cameraCamera2" }
 androidx-camera-view-v1 = { module = "androidx.camera:camera-view", version.ref = "cameraView" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
+androidx-room-compiler-v2xx = { module = "androidx.room:room-compiler", version.ref = "androidxRoomCompiler" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "androidxRoomCompiler" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 com-google-dagger-hilt-android-compiler2 = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidTesting" }

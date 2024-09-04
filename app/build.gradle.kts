@@ -71,6 +71,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation(libs.androidx.hilt.navigation.compose)
+
+
     // Jetpack Compose
     implementation (libs.ui)
     implementation (libs.androidx.material)
@@ -88,7 +91,8 @@ dependencies {
 
     // Room for local database
     implementation (libs.androidx.room.runtime)
-   // kapt (libs.androidx.room.compiler)
+    kapt (libs.androidx.room.compiler)
+    implementation (libs.androidx.room.ktx)
 
     // MediaStore API to save to gallery
     implementation (libs.androidx.core.ktx)
