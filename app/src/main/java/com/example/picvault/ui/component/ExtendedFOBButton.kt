@@ -1,6 +1,7 @@
 package com.example.picvault.ui.component
 
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -13,8 +14,8 @@ import com.example.picvault.R
 
 @Composable
 fun ExtendedFOBButton(
-    `buttonText`: String = "Camera",
-    btnImage: Int = R.drawable.camera,
+    buttonText: String = "Camera",
+    btnImage: Int = R.drawable.camera1,
     onClick: () -> Unit
 ) {
     ExtendedFloatingActionButton(
@@ -23,10 +24,11 @@ fun ExtendedFOBButton(
             Icon(
                 painter = painterResource(btnImage),
                 contentDescription = "",
-                modifier = Modifier.size(35.dp),
+                modifier = Modifier.size(30.dp),
                 tint = Color.Unspecified
             )
         },
-        text = { Text(text = buttonText) },
+        text = { Text(text = buttonText, color = Color.White) },
+        containerColor = Color.Blue
     )
 }

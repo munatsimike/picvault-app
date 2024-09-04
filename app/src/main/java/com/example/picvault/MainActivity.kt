@@ -33,6 +33,7 @@ import com.example.picvault.domain.Image
 import com.example.picvault.ui.Gallery.GalleryScreen
 import com.example.picvault.ui.PicViewModel
 import com.example.picvault.ui.component.ExtendedFOBButton
+import com.example.picvault.ui.component.HeaderData
 import com.example.picvault.ui.state.ImageSaveState
 import com.example.picvault.ui.theme.PicVaultTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -123,7 +124,7 @@ fun MainScreen(context: Context, picViewModel: PicViewModel = hiltViewModel(), c
             snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
             content = { paddingValues ->
                 Box(modifier = Modifier.padding(paddingValues)) {
-                    GalleryScreen(context)
+                    GalleryScreen(context, HeaderData(username = "Sanket", projectTitle = "Elma Street Project", currentPage = "Gallery"))
                 }
             }
         )
