@@ -8,6 +8,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,10 +17,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -37,11 +38,11 @@ fun DisplayScreenHeader(
 ) {
     Box(
         modifier = Modifier
-            .background(Color(255,215,0))
+            .background(Color(255, 215, 0))
             .padding(10.dp)
-            .animateContentSize(animationSpec = tween(durationMillis = 500) )
+            .animateContentSize(animationSpec = tween(durationMillis = 500))
     ) {
-        BackButtonAndUsername(headerData) {onBtnClick()}
+        BackButtonAndUsername(headerData) { onBtnClick() }
         HideAndShowPageTitleSection(isTitleVisible = isTitleVisible, headerData)
     }
 }
@@ -80,7 +81,14 @@ private fun BackButtonAndUsername(
             .fillMaxWidth()
             .clickable { onBtnClick() }
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = modifier.border(
+                width = 2.dp,
+                color = Color.Blue,
+                shape = RoundedCornerShape(5.dp)
+            ).padding(start = 3.dp, end = 5.dp)
+        ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                 contentDescription = ""
