@@ -7,23 +7,25 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import com.example.picvault.R
 
 @Composable
 fun ExtendedFOBButton(
     buttonText: String = "Camera",
-    btnImage: Int = R.drawable.camera,
+    btnImage: ImageVector = ImageVector.vectorResource(R.drawable.photo_camera_24px),
     onClick: () -> Unit
 ) {
     ExtendedFloatingActionButton(
         onClick = { onClick() },
         icon = {
             Icon(
-                painter = painterResource(btnImage),
+                imageVector = btnImage,
                 contentDescription = "",
-                modifier = Modifier.size(30.dp),
+                modifier = Modifier.size(26.dp),
                 tint = Color.Unspecified
             )
         },

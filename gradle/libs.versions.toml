@@ -16,9 +16,11 @@ lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
 composeBom = "2024.08.00"
 material = "1.6.8"
+navigationCompose = "2.8.0"
 roomRuntime = "2.6.1"
 truth = "1.1.2"
 ui = "1.6.8"
+uiGraphics = "1.7.0"
 uiToolingPreview = "1.6.8"
 hiltVersion = "2.49"
 kspVersion = "1.5.30-1.0.0"
@@ -33,6 +35,7 @@ androidx-camera-view-v1 = { module = "androidx.camera:camera-view", version.ref 
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
 androidx-room-compiler-v2xx = { module = "androidx.room:room-compiler", version.ref = "androidxRoomCompiler" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "androidxRoomCompiler" }
@@ -57,6 +60,7 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 truth = { module = "com.google.truth:truth", version.ref = "truth" }
 ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
+ui-graphics = { module = "androidx.compose.ui:ui-graphics", version.ref = "uiGraphics" }
 ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "uiToolingPreview" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android" , version.ref = "hiltVersion"}
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler" , version.ref = "hiltVersion"}

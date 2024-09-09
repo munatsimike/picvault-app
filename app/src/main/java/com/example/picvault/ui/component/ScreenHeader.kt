@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -28,13 +29,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
+import com.example.picvault.R
 
 @Composable
 fun DisplayScreenHeader(
     headerData: HeaderData,
     isTitleVisible: Boolean,
-    onBtnClick: () -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -42,8 +45,9 @@ fun DisplayScreenHeader(
             .padding(10.dp)
             .animateContentSize(animationSpec = tween(durationMillis = 500))
     ) {
-        BackButtonAndUsername(headerData) { onBtnClick() }
+        BackButtonAndUsername(headerData)
         HideAndShowPageTitleSection(isTitleVisible = isTitleVisible, headerData)
+      //BackButtonAndUsername(headerData= headerData)
     }
 }
 
@@ -72,22 +76,28 @@ fun HideAndShowPageTitleSection(isTitleVisible: Boolean, headerData: HeaderData)
 private fun BackButtonAndUsername(
     headerData: HeaderData,
     modifier: Modifier = Modifier,
-    onBtnClick: () -> Unit
 ) {
+    HeaderRowContainer(headerData, modifier)
+}
+
+@Composable
+fun HeaderRowContainer(headerData: HeaderData, modifier: Modifier = Modifier){
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onBtnClick() }
     ) {
+        //display back button
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = modifier.border(
-                width = 2.dp,
-                color = Color.Blue,
-                shape = RoundedCornerShape(5.dp)
-            ).padding(start = 3.dp, end = 5.dp)
+            modifier = modifier
+                .border(
+                    width = 2.dp,
+                    color = Color.Blue,
+                    shape = RoundedCornerShape(5.dp)
+                )
+                .padding(start = 3.dp, end = 5.dp)
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
@@ -95,6 +105,8 @@ private fun BackButtonAndUsername(
             )
             Text(text = "Back")
         }
+
+        // Display logged in username
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
                 imageVector = Icons.Default.AccountCircle,
@@ -113,12 +125,13 @@ private fun ProjectTitleAndCurrentScreen(headerData: HeaderData, modifier: Modif
         modifier = modifier.fillMaxWidth()
     ) {
         Icon(
-            imageVector = Icons.Outlined.Home,
+            imageVector = ImageVector.vectorResource(id = R.drawable.house_24px),
             contentDescription = "",
             modifier.size(40.dp),
             tint = Color.Blue
         )
         Text(text = headerData.projectTitle)
+
         Text(text = headerData.currentPage)
     }
 }

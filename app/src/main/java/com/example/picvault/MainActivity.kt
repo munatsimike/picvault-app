@@ -1,12 +1,10 @@
 package com.example.picvault
 
-
 import android.Manifest
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
@@ -28,8 +26,11 @@ import androidx.compose.ui.Modifier
 import androidx.core.content.FileProvider
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.compose.rememberNavController
 import com.example.picvault.data.model.Url
 import com.example.picvault.domain.Image
+import com.example.picvault.navigation.NavHost
+import com.example.picvault.navigation.bottomNav.BottomNavBar
 import com.example.picvault.ui.Gallery.GalleryScreen
 import com.example.picvault.ui.PicViewModel
 import com.example.picvault.ui.component.ExtendedFOBButton
@@ -112,19 +113,33 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainScreen(context: Context, picViewModel: PicViewModel = hiltViewModel(), captureImage: () -> Unit) {
+fun MainScreen(
+    context: Context,
+    picViewModel: PicViewModel = hiltViewModel(),
+    captureImage: () -> Unit
+) {
     val snackBarHostState = remember { SnackbarHostState() }
     // Observe state from the ViewModel inside the Composable
     val saveState by picViewModel.message.collectAsState()
+    val navHostController = rememberNavController()
     LaunchSnackBar(snackBarHostState, saveState)
     PicVaultTheme {
         Scaffold(
             floatingActionButton = { ExtendedFOBButton { captureImage() } },
             floatingActionButtonPosition = FabPosition.End,
             snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
+            bottomBar = { BottomNavBar(navHostController = navHostController) },
             content = { paddingValues ->
                 Box(modifier = Modifier.padding(paddingValues)) {
-                    GalleryScreen(context, HeaderData(username = "Sanket", projectTitle = "Elma Street Project", currentPage = "Gallery"))
+                  /** GalleryScreen(
+                        context,
+                        HeaderData(
+                            username = "Sanket",
+                            projectTitle = "Elma Street Project",
+                            currentPage = "Gallery"
+                        )
+                    )**/
+                    NavHost.MyNavHost(navController = navHostController)
                 }
             }
         )

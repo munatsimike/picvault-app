@@ -8,12 +8,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -24,9 +26,6 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -41,11 +40,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.core.content.FileProvider
 import coil.compose.rememberAsyncImagePainter
+import com.example.picvault.R
 import com.example.picvault.ui.component.DisplayScreenHeader
 import com.example.picvault.ui.component.HeaderData
 import com.example.picvault.ui.util.titles
@@ -72,7 +74,7 @@ object Gallery {
             modifier = modifier
                 .fillMaxSize()
         ) {
-            DisplayScreenHeader(headerData = headerData, isTitleVisible = isTitleVisible) {}
+            DisplayScreenHeader(headerData = headerData, isTitleVisible = isTitleVisible)
             DisplayGridImages(state = gridState, urls)
         }
     }
@@ -154,12 +156,13 @@ object Gallery {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = modifier
+                .height(IntrinsicSize.Min)
                 .padding(5.dp)
                 .background(Color.Black.copy(alpha = 0.5f), shape = RoundedCornerShape(8.dp))
                 .padding(horizontal = 16.dp, vertical = 8.dp) // This padding is now applied to the entire Row
         ) {
             Icon(
-                imageVector = Icons.Outlined.Home,
+                imageVector = ImageVector.vectorResource(id = R.drawable.house_24px),
                 contentDescription = "House icon",
                 tint = Color.White,
                 modifier = Modifier.size(20.dp) // Modifier is applied to the Icon specifically
@@ -172,5 +175,4 @@ object Gallery {
             )
         }
     }
-
 }

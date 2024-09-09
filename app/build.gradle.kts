@@ -73,48 +73,47 @@ dependencies {
 
     implementation(libs.androidx.hilt.navigation.compose)
 
-
     // Jetpack Compose
-    implementation (libs.ui)
-    implementation (libs.androidx.material)
-    implementation (libs.ui.tooling.preview)
+    implementation(libs.ui)
+    implementation(libs.androidx.material)
+    implementation(libs.ui.tooling.preview)
 
     // CameraX for camera functionality
-    implementation (libs.androidx.camera.camera2)
-    implementation (libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
 
-    implementation (libs.androidx.camera.extensions)
-    implementation (libs.androidx.camera.core)
+    implementation(libs.androidx.camera.extensions)
+    implementation(libs.androidx.camera.core)
     // View class for camera preview
-    implementation (libs.androidx.camera.view.v1)
+    implementation(libs.androidx.camera.view.v1)
 
 
     // Room for local database
-    implementation (libs.androidx.room.runtime)
-    kapt (libs.androidx.room.compiler)
-    implementation (libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 
     // MediaStore API to save to gallery
-    implementation (libs.androidx.core.ktx)
+    implementation(libs.androidx.core.ktx)
 
     // Coil for image loading
-    implementation (libs.coil.compose)
+    implementation(libs.coil.compose)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
     // For Robolectric tests.
-    testImplementation (libs.hilt.android.testing)
+    testImplementation(libs.hilt.android.testing)
     // ...with Kotlin.
-    kaptTest (libs.com.google.dagger.hilt.android.compiler2)
+    kaptTest(libs.com.google.dagger.hilt.android.compiler2)
     // ...with Java.
-   // testAnnotationProcessor (libs.com.google.dagger.hilt.android.compiler2)
+    // testAnnotationProcessor (libs.com.google.dagger.hilt.android.compiler2)
 
     // For instrumented tests.
-    androidTestImplementation (libs.hilt.android.testing)
+    androidTestImplementation(libs.hilt.android.testing)
     // ...with Kotlin.
-    kaptAndroidTest (libs.com.google.dagger.hilt.android.compiler2)
+    kaptAndroidTest(libs.com.google.dagger.hilt.android.compiler2)
     // ...with Java.
-    androidTestAnnotationProcessor (libs.com.google.dagger.hilt.android.compiler2)
+    androidTestAnnotationProcessor(libs.com.google.dagger.hilt.android.compiler2)
 
     // AndroidX Core Testing for LiveData testing
     testImplementation(libs.core.testing)
@@ -123,5 +122,10 @@ dependencies {
     // google truth
     testImplementation(libs.truth)
     androidTestImplementation(libs.truth)
+    implementation(libs.androidx.navigation.compose)
+
+    //vector
+    implementation(libs.ui.graphics)
+
 
 }
